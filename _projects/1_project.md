@@ -1,8 +1,8 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: Automated thematic clustering
+description: ATC using NLP and webscraping for weather and social public databases
+img: assets/img/p1_1.jpg
 importance: 1
 category: work
 ---

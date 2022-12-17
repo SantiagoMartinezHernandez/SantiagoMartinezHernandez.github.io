@@ -1,8 +1,8 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image
-img: assets/img/3.jpg
+title: Radiance prediction with GNN and LSTM
+description: long-term solar radiance estimation with multi-station analysis
+img: assets/img/p2_1.jpg
 importance: 2
 category: work
 ---

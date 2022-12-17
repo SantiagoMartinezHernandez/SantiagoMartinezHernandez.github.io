@@ -2,25 +2,31 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Student at <a href='https://uniandes.edu.co'>Universidad de los Andes</a>
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Cra. 64 # 55 A 19 Sur</p>
+    <p>Bogotá, Colombia</p>
 
 news: true  # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-This is the very first commit, how exciting!
-Time to try a change 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I'm an undergraduate student of biomedical and software engineering with a
+minor in neuroscience at the University of los Andes on Colombia.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I'm quite passionate on the fields of artificial intelligence, neuroscience,
+robotics, biology, pluripotential cells, and complex systems.
+
+Throughout the years I have worked with the most wonderful teams,
+feel free to check them out, along with the projects, at the projects section.
+
+I wish to put the knowledge that I have gathered to the service of human
+health; It is my great pursue in live to understand the underlying
+mechanisms of aging on the epigenomic landscape, and even find ways to reverse
+it!

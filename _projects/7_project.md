@@ -1,11 +1,10 @@
 ---
 layout: page
-title: The Harmonize project (collaborator)
-description: Drone imaging and CV to predict Dengue incidence
-img: assets/img/p3_1.jpg
-redirect: https://ingbiomedica.uniandes.edu.co/es/noticias/harmonize
+title: RXAI: Bone cancer detection with CNN and ViT
+description: Osteosarcoma detection from radiographies with DL and visual transformers
+img: assets/img/p7_1.jpg
 importance: 3
-category: collaborations
+category: work
 ---
 
 Every project has a beautiful feature showcase page.
