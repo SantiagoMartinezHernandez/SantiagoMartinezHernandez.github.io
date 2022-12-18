@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Autonomous navigation at Robocol
-description: CV software for a drone, a rover and a submarine
+title: SFM and rl algorithms for mechanical arm
+description: route calculation and 3d recreation of reality for arm tasks
 img: assets/img/robo.jpg
-importance: 1
+importance: 2
 category: fun
 ---
 

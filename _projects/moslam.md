@@ -1,11 +1,12 @@
 ---
 layout: page
-title: Autonomous navigation at Robocol
-description: CV software for a drone, a rover and a submarine
-img: assets/img/robo.jpg
-importance: 1
-category: fun
+title: Monocular odometry on Python (main developer)
+description: simultaneous location and mapping with monocular odometry
+img: assets/img/map.jpg
+importance: 2
+category: collaborations
 ---
+Something to test mate 
 
 Every project has a beautiful feature showcase page.
 It's easy to include images in a flexible 3-column grid format.

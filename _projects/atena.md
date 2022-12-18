@@ -1,8 +1,8 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
+title: essential tremor supression via neuro-electrical stimulation
+description: Aferent nerves electrical stimulation for the atenuation of ET and PD tremor
+img: assets/img/ATE.jpg
 importance: 3
 category: fun
 ---
