@@ -6,9 +6,11 @@ subtitle: Student at <a href='https://uniandes.edu.co'>Universidad de los Andes<
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: new_prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
+    <p> 355 N Central Avenue 85004</p>
+    <p> Phoenix, AZ </p>
     <p>Cra. 64 # 55 A 19 Sur</p>
     <p>Bogotá, Colombia</p>
 
@@ -18,7 +20,7 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 I'm an undergraduate student of biomedical and software engineering with a
-minor in neuroscience at the University of los Andes on Colombia.
+minor in neuroscience at the University of the Andes on Colombia.
 
 I'm quite passionate on the fields of artificial intelligence, neuroscience,
 robotics, biology, pluripotential cells, and complex systems.
