@@ -17,9 +17,9 @@ regarding this project
 
 <a href="intent://arvr.google.com/scene-viewer/1.0?file=https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Avocado/glTF/Avocado.gltf#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">Avocado</a>
 
-<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/test.gltf#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">TMAP</a>
+<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/checked_g.glb#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">GLB</a>
 
-<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/segmentation_1.stl#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">STLMAP</a>
+<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/test.gltf#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">GLTF</a>
 
 
 Feel free to reach to my e-mail <a href='mailto:as.martinez@uniandes.edu.co'>as.martinez@uniandes.edu.co</a> to get more
