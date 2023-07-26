@@ -12,12 +12,12 @@ category: fun
 <!-- Use it like any other HTML element -->
 <model-viewer
     data-name="test"
-    src="https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/smalltest.gltf"
+    src="assets/3dr/smalltest.gltf"
     ios-src="https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/smalltest.usdz"
     ar
     ar-modes="webxr scene-viewer quick-look"
     camera-controls
-    poster="./assets/img/oops.jpg"
+    poster="assets/img/oops.jpg"
     shadow-intensity="1"
     camera-orbit="-180.8deg 22.5deg 18.59m"
     field-of-view="30deg">
