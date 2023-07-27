@@ -10,17 +10,7 @@ category: fun
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 <!-- Use it like any other HTML element -->
-<model-viewer
-    data-name="test"
-    src="assets/3dr/smalltest.gltf"
-    ios-src="https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/smalltest.usdz"
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    camera-controls
-    poster="assets/img/oops.jpg"
-    shadow-intensity="1"
-    camera-orbit="-180.8deg 22.5deg 18.59m"
-    field-of-view="30deg">
+<model-viewer src="smalltest.gltf" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="assets/img/oops.jpg" shadow-intensity="1" camera-orbit="-180.8deg 22.5deg 18.59m" field-of-view="30deg">
     <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
     </div>
