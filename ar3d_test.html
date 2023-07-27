@@ -1,25 +1,29 @@
-<!-- Import the component -->
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-<!-- Use it like any other HTML element -->
-<model-viewer
-    data-name="test"
-    src="https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/smalltest.gltf"
-    ios-src="https://github.com/SantiagoMartinezHernandez/AR3D/blob/main/smalltest.usdz"
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    camera-controls
-    poster="./assets/img/oops.jpg"
-    shadow-intensity="1"
-    camera-orbit="-180.8deg 22.5deg 18.59m"
-    field-of-view="30deg">
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
-    <button slot="ar-button" id="ar-button">
-        View in your space
-    </button>
-    <div id="ar-prompt">
-        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
-    </div>
-</model-viewer>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./3d_stuff/styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="smalltest.gltf"
+    ios-src="smalltest.usdz"
+     ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" camera-orbit="-180.8deg 22.5deg 18.59m" field-of-view="30deg">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </model-viewer>
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+  </body>
+</html>
