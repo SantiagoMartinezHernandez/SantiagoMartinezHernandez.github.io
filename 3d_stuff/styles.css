@@ -2,6 +2,11 @@
   display: none;
 }
 
+h1 {
+  font-family: Arial;
+  color: #013EA8;
+}
+
 html {
   height: 100%;
 }
