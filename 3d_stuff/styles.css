@@ -82,6 +82,12 @@ model-viewer {
   outline: 1px solid #4285f4;
 }
 
+#letters{
+  font-family: Arial;
+  font-size: 20px;
+  color: #013EA8;
+}
+
 @keyframes circle {
   from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
   to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
