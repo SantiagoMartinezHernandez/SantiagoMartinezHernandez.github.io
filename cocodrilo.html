@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tag actualizado para mejor comportamiento en móvil (evita zoom de UI) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Mapa de la juerga - Fiesta Cocodrilo</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #0a1a0a;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ccffcc;
+            /* Prevenir selección de texto accidental en móvil */
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        #info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 20, 0, 0.9);
+            padding: 15px;
+            border: 1px solid #32cd32;
+            border-radius: 8px;
+            pointer-events: none;
+            box-shadow: 0 0 15px #32cd32;
+            max-width: 320px;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #adff2f;
+            text-shadow: 0 0 5px #adff2f;
+        }
+        p {
+            font-size: 0.9rem;
+            color: #ccffcc;
+            margin: 5px 0;
+        }
+        .highlight {
+            color: #adff2f;
+            font-weight: bold;
+        }
+        #tooltip {
+            position: absolute;
+            background: rgba(0, 40, 0, 0.95);
+            border: 2px solid #32cd32;
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            display: none;
+            pointer-events: none;
+            z-index: 10;
+            box-shadow: 0 0 15px #32cd32;
+            text-align: center;
+            min-width: 150px;
+            /* Transición suave para movimiento */
+            transition: opacity 0.2s;
+        }
+        #tooltip h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: #adff2f;
+            text-transform: uppercase;
+        }
+        #tooltip-desc {
+            font-style: italic;
+            color: #aaffaa;
+        }
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #adff2f;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #adff2f;
+            pointer-events: none;
+        }
+
+        /* --- ESTILOS MÓVIL --- */
+        @media (max-width: 768px) {
+            #info {
+                top: auto;
+                bottom: 20px; /* Mover abajo */
+                left: 10px;
+                right: 10px;
+                width: auto;
+                max-width: none;
+                padding: 10px;
+                font-size: 0.8rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: rgba(0, 20, 0, 0.95);
+            }
+            #info h1 {
+                font-size: 1.1rem;
+                margin-bottom: 5px;
+            }
+            #info p {
+                display: none; /* Ocultar instrucciones detalladas en móvil para ahorrar espacio */
+            }
+            #info p.highlight {
+                display: block; /* Solo mostrar el estado */
+                margin: 0;
+            }
+            /* Tooltip fijo arriba en móvil para que el dedo no lo tape */
+            #tooltip.mobile-active {
+                top: 20px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 80%;
+                pointer-events: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="info">
+        <h1>Operación: Cocodrilo</h1>
+        <p>🐊 Cuidado con el Ciber-Cocodrilo.</p>
+        <p>🖱️ PC: Click + Arrastrar.</p>
+        <p>📱 Móvil: Toca para info.</p>
+        <p class="highlight">Mira la calidad, paga el cover</p>
+    </div>
+
+    <div id="tooltip">
+        <h3 id="tooltip-title">Zona</h3>
+        <div id="tooltip-desc">Descripción</div>
+    </div>
+
+    <div id="loading">Iniciando Protocolo Cocodrilo...</div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // --- Configuración Principal ---
+        const scene = new THREE.Scene();
+        const bgColor = 0x0a1a0a; 
+        scene.background = new THREE.Color(bgColor);
+        scene.fog = new THREE.FogExp2(bgColor, 0.012);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 100, 80); 
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limitar pixel ratio para rendimiento en móvil
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        document.getElementById('loading').style.display = 'none';
+
+        // --- Controles ---
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2.1;
+        controls.minDistance = 20;
+        controls.maxDistance = 200;
+        // Mejorar tacto en móvil
+        controls.rotateSpeed = 0.7;
+        controls.enablePan = false; // Desactivar paneo en móvil suele ser mejor UX para no perder el centro
+
+        // --- Iluminación ---
+        const ambientLight = new THREE.AmbientLight(0x668866, 2.2); 
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xaaffaa, 2.0);
+        dirLight.position.set(30, 60, 40);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024; // Reducir un poco para rendimiento móvil
+        dirLight.shadow.mapSize.height = 1024;
+        scene.add(dirLight);
+
+        const fillLight = new THREE.DirectionalLight(0x445544, 1.0);
+        fillLight.position.set(-30, 40, -40);
+        scene.add(fillLight);
+
+        // --- Suelo ---
+        const gridHelper = new THREE.GridHelper(200, 50, 0x32cd32, 0x113311);
+        scene.add(gridHelper);
+
+        const planeGeometry = new THREE.PlaneGeometry(200, 200);
+        const planeMaterial = new THREE.MeshPhongMaterial({ 
+            color: 0x020a02, 
+            side: THREE.DoubleSide,
+            shininess: 50
+        });
+        const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+        plane.rotation.x = -Math.PI / 2;
+        plane.position.y = -0.1;
+        plane.receiveShadow = true;
+        scene.add(plane);
+
+        // --- Niebla Píxeles ---
+        function createPixelFog() {
+            const particleCount = 2000; // Reducido un poco para móviles
+            const geometry = new THREE.BufferGeometry();
+            const positions = [];
+            const sizes = [];
+
+            for (let i = 0; i < particleCount; i++) {
+                const x = (Math.random() - 0.5) * 200;
+                const y = Math.random() * 40;
+                const z = (Math.random() - 0.5) * 200;
+                positions.push(x, y, z);
+                sizes.push(Math.random() * 0.5);
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geometry.setAttribute('size', new THREE.Float32BufferAttribute(sizes, 1));
+
+            const material = new THREE.PointsMaterial({
+                color: 0x32cd32,
+                size: 0.4,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending,
+                sizeAttenuation: true
+            });
+
+            return new THREE.Points(geometry, material);
+        }
+
+        const pixelFog = createPixelFog();
+        scene.add(pixelFog);
+
+        // --- ZONAS ---
+        const zones = [];
+        const wallMaterial = new THREE.MeshPhongMaterial({ color: 0x888888, transparent: true, opacity: 0.15, side: THREE.DoubleSide });
+        const wallEdgeMaterial = new THREE.LineBasicMaterial({ color: 0xaaaaaa, linewidth: 1, transparent: true, opacity: 0.3 });
+
+        function createWalls(width, depth, height, x, z, group) {
+            const thickness = 0.5;
+            const walls = [
+                { w: width, d: thickness, h: height, px: 0, pz: -depth/2 + thickness/2 },
+                { w: width, d: thickness, h: height, px: 0, pz: depth/2 - thickness/2 },
+                { w: thickness, d: depth - (thickness*2), h: height, px: -width/2 + thickness/2, pz: 0 },
+                { w: thickness, d: depth - (thickness*2), h: height, px: width/2 - thickness/2, pz: 0 }
+            ];
+            walls.forEach(w => {
+                const geo = new THREE.BoxGeometry(w.w, w.h, w.d);
+                const mesh = new THREE.Mesh(geo, wallMaterial);
+                mesh.position.set(w.px, w.h/2, w.pz);
+                const edges = new THREE.EdgesGeometry(geo);
+                mesh.add(new THREE.LineSegments(edges, wallEdgeMaterial));
+                group.add(mesh);
+            });
+        }
+
+        function createZone(x, z, width, depth, wallHeight, color, name, description, hasWalls = false) {
+            const group = new THREE.Group();
+            group.position.set(x, 0, z);
+
+            const floorHeight = 0.5;
+            const floorGeo = new THREE.BoxGeometry(width, floorHeight, depth);
+            const floorMat = new THREE.MeshPhongMaterial({ color: color, transparent: true, opacity: 0.6, shininess: 80 });
+            const floorMesh = new THREE.Mesh(floorGeo, floorMat);
+            floorMesh.position.y = floorHeight / 2;
+            floorMesh.receiveShadow = true;
+            group.add(floorMesh);
+
+            const floorLines = new THREE.LineSegments(new THREE.EdgesGeometry(floorGeo), new THREE.LineBasicMaterial({ color: color }));
+            floorMesh.add(floorLines);
+
+            if (hasWalls) createWalls(width, depth, wallHeight, x, z, group);
+
+            const light = new THREE.PointLight(color, 1, 20);
+            light.position.set(0, 5, 0);
+            group.add(light);
+
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 512; canvas.height = 128;
+            ctx.fillStyle = "rgba(0, 20, 0, 0.6)"; ctx.fillRect(0,0, 512, 128);
+            ctx.strokeStyle = '#' + color.getHexString(); ctx.lineWidth = 6; ctx.strokeRect(0,0, 512, 128);
+            ctx.font = 'Bold 40px Courier New'; ctx.fillStyle = '#' + color.getHexString();
+            ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(name.toUpperCase(), 256, 64);
+            
+            const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true, opacity: 0.9 }));
+            sprite.position.set(0, hasWalls ? wallHeight + 5 : 8, 0);
+            sprite.scale.set(12, 3, 1);
+            group.add(sprite);
+
+            group.userData = { name: name, description: description, originalColor: color.getHex() };
+            scene.add(group);
+            zones.push({ mesh: floorMesh, group: group });
+        }
+
+        const c_swamp = new THREE.Color(0x32cd32); const c_mud = new THREE.Color(0xffd700);
+        const c_deep = new THREE.Color(0x008b8b);  const c_danger = new THREE.Color(0xff0000);
+        const c_water = new THREE.Color(0x00bfff); const c_entry = new THREE.Color(0xff4500);
+        const c_potion = new THREE.Color(0xff00ff);
+
+        createZone(-55, 0, 10, 10, 8, c_entry, "Entrada", "Bienvenido cocodrilo", true);
+        createZone(-35, -12.5, 30, 25, 10, c_water, "El Trono", "La pared rola por ahi pa", true);
+        createZone(-35, 12.5, 30, 25, 8, c_deep, "Parchadero", "Pa quien le guste parchar y jugar sentaditx", true);
+        createZone(-15, 12.5, 10, 25, 12, c_danger, "Escalera (BLOCKED)", "Los cocodrilos no suben escaleras", true);
+        createZone(10, -12.5, 40, 25, 0, c_mud, "Bebedera", "Dejen el chorro en el comedor y aprovechen pa compartirlo con alguien que no conozcan", false);
+        createZone(10, 12.5, 40, 25, 0, c_swamp, "Bailadera", "Todos tienen que pasar por acá", false);
+        createZone(40, 0, 20, 50, 10, c_potion, "Pocionera", "Dejen a los magos cocinar (Aunque el chisme de la cocina es insuperable)", true);
+        createZone(55, 0, 10, 50, 3, new THREE.Color(0xffff00), "Platiconera", "Jardín de gatos, besos, y adelantamiento de cuaderno", true);
+
+        // --- CIBER-COCODRILO 3D ---
+        class CyberCroc {
+            constructor() {
+                this.mesh = new THREE.Group();
+                const greenMat = new THREE.MeshPhongMaterial({ color: 0x32cd32, shininess: 100 });
+                const wireMat = new THREE.LineBasicMaterial({ color: 0x00ff00 });
+
+                const bodyGeo = new THREE.BoxGeometry(6, 2, 3);
+                this.body = new THREE.Mesh(bodyGeo, greenMat);
+                this.body.add(new THREE.LineSegments(new THREE.EdgesGeometry(bodyGeo), wireMat));
+                this.body.castShadow = true;
+                this.mesh.add(this.body);
+
+                const headGeo = new THREE.BoxGeometry(3, 1.8, 2.5);
+                this.head = new THREE.Mesh(headGeo, greenMat);
+                this.head.position.set(4.5, 0.2, 0); 
+                this.head.add(new THREE.LineSegments(new THREE.EdgesGeometry(headGeo), wireMat));
+                
+                const eyeGeo = new THREE.BoxGeometry(0.2, 0.2, 0.5);
+                const eyeMat = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+                const eyeL = new THREE.Mesh(eyeGeo, eyeMat); eyeL.position.set(1, 1, 0.8);
+                const eyeR = new THREE.Mesh(eyeGeo, eyeMat); eyeR.position.set(1, 1, -0.8);
+                this.head.add(eyeL); this.head.add(eyeR);
+                
+                const snoutGeo = new THREE.BoxGeometry(3, 1, 2);
+                this.snout = new THREE.Mesh(snoutGeo, greenMat);
+                this.snout.position.set(2.5, -0.3, 0);
+                this.head.add(this.snout);
+
+                this.body.add(this.head);
+
+                this.tail = new THREE.Group();
+                this.tail.position.set(-3, 0, 0);
+                const t1Geo = new THREE.BoxGeometry(3, 1.5, 2);
+                this.tail1 = new THREE.Mesh(t1Geo, greenMat);
+                this.tail1.position.set(-1.5, 0, 0);
+                this.tail.add(this.tail1);
+                const t2Geo = new THREE.BoxGeometry(3, 1, 1);
+                this.tail2 = new THREE.Mesh(t2Geo, greenMat);
+                this.tail2.position.set(-3, 0, 0); 
+                this.tail1.add(this.tail2);
+                this.body.add(this.tail);
+
+                this.legs = [];
+                const legGeo = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+                const pos = [[2, -1, 1.5], [2, -1, -1.5], [-2, -1, 1.5], [-2, -1, -1.5]];
+                pos.forEach(p => {
+                    const leg = new THREE.Mesh(legGeo, greenMat);
+                    leg.position.set(p[0], p[1], p[2]);
+                    this.body.add(leg);
+                    this.legs.push(leg);
+                });
+
+                scene.add(this.mesh);
+                this.mesh.position.y = 2;
+            }
+
+            animate(t) {
+                this.tail.rotation.y = Math.sin(t * 5) * 0.3;
+                this.tail2.rotation.y = Math.sin(t * 5 - 1) * 0.5;
+                this.head.rotation.z = Math.sin(t * 2) * 0.05;
+                this.legs[0].rotation.z = Math.sin(t * 8) * 0.3; 
+                this.legs[1].rotation.z = Math.cos(t * 8) * 0.3; 
+                this.legs[2].rotation.z = Math.cos(t * 8) * 0.3; 
+                this.legs[3].rotation.z = Math.sin(t * 8) * 0.3; 
+            }
+        }
+
+        const croc = new CyberCroc();
+
+        const pathPoints = [
+            new THREE.Vector3(-55, 2, 0), new THREE.Vector3(-35, 2, 0),
+            new THREE.Vector3(10, 2, 0), new THREE.Vector3(40, 2, 0),
+            new THREE.Vector3(55, 2, 0), new THREE.Vector3(10, 2, 10)
+        ];
+        let currentTargetIdx = 0;
+        const speed = 0.15;
+
+        // --- Interacción Unificada (Móvil y PC) ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2(-100, -100); // Inicializar fuera de pantalla
+        const tooltip = document.getElementById('tooltip');
+        const tooltipTitle = document.getElementById('tooltip-title');
+        const tooltipDesc = document.getElementById('tooltip-desc');
+        let isMobile = false;
+
+        // Detectar tipo de dispositivo para ajustar tooltip
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768) {
+            isMobile = true;
+        }
+
+        function updateRaycaster(x, y) {
+            mouse.x = (x / window.innerWidth) * 2 - 1;
+            mouse.y = -(y / window.innerHeight) * 2 + 1;
+            
+            // En desktop movemos el tooltip con el mouse
+            if (!isMobile) {
+                tooltip.style.left = x + 20 + 'px';
+                tooltip.style.top = y + 20 + 'px';
+            }
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            updateRaycaster(e.clientX, e.clientY);
+        });
+
+        // Soporte Touch
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                updateRaycaster(e.touches[0].clientX, e.touches[0].clientY);
+                // En móvil activamos clase para posicionamiento fijo
+                tooltip.classList.add('mobile-active');
+            }
+        }, { passive: false });
+
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+            controls.update();
+
+            pixelFog.rotation.y += 0.001;
+            const positions = pixelFog.geometry.attributes.position.array;
+            for(let i = 1; i < positions.length; i+=3) {
+                positions[i] += Math.sin(time + positions[i-1]) * 0.02;
+            }
+            pixelFog.geometry.attributes.position.needsUpdate = true;
+
+            croc.animate(time);
+            const target = pathPoints[currentTargetIdx];
+            const currentPos = croc.mesh.position;
+            const direction = new THREE.Vector3().subVectors(target, currentPos);
+            
+            if (direction.length() < 1) {
+                currentTargetIdx = (currentTargetIdx + 1) % pathPoints.length;
+            } else {
+                direction.normalize();
+                currentPos.add(direction.multiplyScalar(speed));
+                croc.mesh.rotation.y = Math.atan2(direction.x, direction.z) + Math.PI / 2;
+            }
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(zones.map(z => z.mesh));
+
+            if (intersects.length > 0) {
+                const object = intersects[0].object;
+                const parent = object.parent;
+                object.material.opacity = 0.9; 
+                document.body.style.cursor = 'pointer';
+                tooltip.style.display = 'block';
+                tooltipTitle.innerText = parent.userData.name;
+                tooltipDesc.innerText = parent.userData.description;
+                tooltip.style.borderColor = '#' + new THREE.Color(parent.userData.originalColor).getHexString();
+                tooltipTitle.style.color = '#' + new THREE.Color(parent.userData.originalColor).getHexString();
+            } else {
+                zones.forEach(z => { z.mesh.material.opacity = 0.6; });
+                // En móvil, si no tocamos nada, el tooltip se queda un momento o se va si tocamos el fondo
+                // Para simplificar, si no hay intersección inmediata, ocultamos
+                tooltip.style.display = 'none';
+                document.body.style.cursor = 'default';
+            }
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            // Re-chequear móvil al redimensionar
+            isMobile = window.innerWidth < 768;
+        });
+
+        animate();
+
+    </script>
+</body>
+</html>
