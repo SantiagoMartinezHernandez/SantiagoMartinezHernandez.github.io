@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun, Games & 3D Labs | Andrés Santiago Martínez Hernández</title>
+  <meta name="description"
+    content="Interactive 3D WebXR Model Viewer, Retro Pixel Combat Arcade Office Duels, and Fiesta Cocodrilo 3D Canvas Map.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Model Viewer for 3D & AR -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=2026.5">
+</head>
+
+<body>
+  <canvas id="neuro-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/img/newpic26.png" alt="Santiago Martínez" class="nav-brand-avatar"
+        style="width:34px;height:34px;border-radius:50%;object-fit:cover;">
+      <span>Santiago Martínez</span>
+      <span class="nav-brand-badge">← Home</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="artwear.html" class="nav-link">⭐ ART/Wear</a></li>
+      <li><a href="robotics.html" class="nav-link">Robotics & 3D</a></li>
+      <li><a href="health.html" class="nav-link">Health & Bio</a></li>
+      <li><a href="neuroscience.html" class="nav-link">Neuro & AI</a></li>
+      <li><a href="labs.html" class="nav-link active">🎮 Labs</a></li>
+      <li><a href="journey.html" class="nav-link">Journey</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">☀️</button>
+      <button class="btn-cmd"><span>⌘K</span></button>
+      <a href="assets/pdf/CV_2026.pdf" target="_blank" class="btn-primary"><span>📄 CV</span></a>
+      <button class="mobile-toggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="subpage-hero">
+      <span class="status-pill-clean" style="border-color: var(--accent-amber); color: var(--accent-amber);">Wing #4 •
+        Experiments & Play</span>
+      <h1 class="subpage-hero-title">Fun, Games & <span
+          style="background: var(--grad-amber-orange); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">3D
+          Labs</span></h1>
+      <p class="subpage-hero-sub">
+        Interactive 3D model viewers, WebXR spatial experiments, retro browser arcade games, and creative shaders.
+      </p>
+    </div>
+
+    <!-- 3D Model Explorer Element -->
+    <div class="glass-card" style="padding: 2.25rem; margin-bottom: 3.5rem;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 1.5rem auto;">
+        <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">WebXR & 3D Spatial Computing</span>
+        <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem;">Interactive 3D Neuro Model Viewer</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          Rotate, zoom, and inspect 3D anatomical models right in your browser, or tap the button below on mobile to
+          launch in Augmented Reality.
+        </p>
+      </div>
+
+      <div class="model-viewer-box" style="height: 420px; max-width: 860px; margin: 0 auto;">
+        <model-viewer src="smalltest.gltf" poster="assets/img/ATE.jpg" alt="Santiago Martínez 3D Model" auto-rotate
+          camera-controls ar ar-modes="webxr scene-viewer quick-look" shadow-intensity="1.5" exposure="1.0">
+          <button slot="ar-button" class="btn-primary"
+            style="position: absolute; bottom: 1rem; right: 1rem; z-index: 10;">
+            📱 View in Augmented Reality (AR)
+          </button>
+        </model-viewer>
+      </div>
+    </div>
+
+    <!-- Games & Interactive Canvas Showcase Grid -->
+    <div class="subpage-grid">
+
+      <!-- Game 1: Office Duels -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/1.jpg" alt="Office Duels Retro Game" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Retro Canvas Game</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">Office Duels (2-Player Combat)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Action-packed retro pixel-art combat game built with pure Canvas and Web Audio. Settle office disputes the
+              old-fashioned way!
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Player 1: WASD keys (Movement) + F (Attack).</li>
+              <li>Player 2: Arrow keys (Movement) + L (Attack).</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.65rem; margin-top: auto; flex-wrap: wrap;">
+            <button class="btn-primary" onclick="openGameModal('officeFeud.html', '🕹️ Office Duels')">🎮 Play Inside
+              Modal</button>
+            <a href="officeFeud.html" target="_blank" class="btn-secondary">Fullscreen ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 2: Fiesta Cocodrilo -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/map.jpg" alt="Fiesta Cocodrilo 3D Map" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">3D Canvas Experience</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">Fiesta Cocodrilo (3D Map)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Interactive 3D isometric festival map with glowing points of interest, custom lighting shaders, and mobile
+              touch navigation.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Interactive POI discovery with dynamic tooltips.</li>
+              <li>Cyberpunk neon aesthetic and responsive controls.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.65rem; margin-top: auto; flex-wrap: wrap;">
+            <button class="btn-primary" onclick="openGameModal('cocodrilo.html', '🐊 Fiesta Cocodrilo')">🗺️ Open in
+              Modal</button>
+            <a href="cocodrilo.html" target="_blank" class="btn-secondary">Fullscreen ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Arcade Modal Overlay -->
+  <div class="modal-overlay" id="arcade-modal">
+    <div class="glass-card"
+      style="width: 100%; max-width: 960px; height: 80vh; padding: 1.25rem; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <h3 id="arcade-modal-title" style="font-size: 1.25rem; color: var(--accent-cyan);">🕹️ Game Modal</h3>
+        <button class="modal-close-btn" onclick="closeGameModal()" style="position: static;">✕</button>
+      </div>
+      <iframe id="arcade-frame" src=""
+        style="width: 100%; height: 100%; border: none; border-radius: 12px; background: #000;"></iframe>
+    </div>
+  </div>
+
+  <footer class="footer-clean">
+    <div class="container footer-inner">
+      <div>
+        <div style="font-size: 1.15rem; font-weight: 800; font-family: var(--font-display);">Andrés Santiago Martínez
+          Hernández</div>
+        <p style="color: var(--text-secondary); font-size: 0.82rem;">Fribourg, Switzerland 🇨🇭 • Fun & Labs</p>
+      </div>
+      <div><a href="index.html" class="nav-link">← Return to Homepage</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2026.4"></script>
+  <script>
+    function openGameModal(url, title) {
+      const modal = document.getElementById('arcade-modal');
+      const frame = document.getElementById('arcade-frame');
+      const titleEl = document.getElementById('arcade-modal-title');
+      if (!modal || !frame) return;
+      frame.src = url;
+      if (titleEl) titleEl.innerText = title;
+      modal.classList.add('active');
+    }
+    function closeGameModal() {
+      const modal = document.getElementById('arcade-modal');
+      const frame = document.getElementById('arcade-frame');
+      if (frame) frame.src = '';
+      modal?.classList.remove('active');
+    }
+  </script>
+</body>
+
+</html>

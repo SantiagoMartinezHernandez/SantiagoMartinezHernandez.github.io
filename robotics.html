@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotics & 3D Modeling | Andrés Santiago Martínez Hernández</title>
+  <meta name="description"
+    content="Physical AI, Structure from Motion, Reinforcement Learning for 6-DOF robotic arms, autonomous multi-terrain navigation, and SDM mechatronic manufacturing.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2026.5">
+</head>
+
+<body>
+  <canvas id="neuro-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/img/newpic26.png" alt="Santiago Martínez" class="nav-brand-avatar"
+        style="width:34px;height:34px;border-radius:50%;object-fit:cover;">
+      <span>Santiago Martínez</span>
+      <span class="nav-brand-badge">← Home</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="artwear.html" class="nav-link">⭐ ART/Wear</a></li>
+      <li><a href="robotics.html" class="nav-link active">Robotics & 3D</a></li>
+      <li><a href="health.html" class="nav-link">Health & Bio</a></li>
+      <li><a href="neuroscience.html" class="nav-link">Neuro & AI</a></li>
+      <li><a href="labs.html" class="nav-link">🎮 Labs</a></li>
+      <li><a href="journey.html" class="nav-link">Journey</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">☀️</button>
+      <button class="btn-cmd"><span>⌘K</span></button>
+      <a href="assets/pdf/CV_2026.pdf" target="_blank" class="btn-primary"><span>📄 CV</span></a>
+      <button class="mobile-toggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="subpage-hero">
+      <span class="status-pill-clean" style="border-color: var(--accent-cyan); color: var(--accent-cyan);">Wing #1 •
+        Physical AI & Kinematics</span>
+      <h1 class="subpage-hero-title">Robotics & <span class="gradient-text">3D Modeling</span></h1>
+      <p class="subpage-hero-sub">
+        Bridging mathematical modeling, spatial computing, and physical actuation through computer vision, reinforcement
+        learning, and mechatronic design.
+      </p>
+    </div>
+
+    <div class="subpage-grid">
+
+      <!-- Card 1: Robotic Arm SFM + RL -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/robo.jpg" alt="Robotic Arm 3D SFM" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Reinforcement Learning &
+              CV</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">SFM & RL for 6-DOF Robotic Arm</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              3D reality reconstruction via monocular Structure from Motion (SfM) combined with policy-gradient
+              reinforcement learning agents in simulation for obstacle-avoidance grasping trajectories.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Point-cloud depth map pipeline built with OpenCV and ROS-2.</li>
+              <li>Tested with multi-axis microcontrollers and physical servo kinematics.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">ROS-2</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">Simulation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Robocol Autonomous Navigation -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/map.jpg" alt="Autonomous Navigation Robocol" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Autonomous Systems</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">Robocol Autonomous Navigation</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Designed perception and navigation algorithms for multi-terrain autonomous vehicles competing in
+              international engineering challenges (Drone, Martian Rover, and Submarine).
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Monocular visual odometry & fiducial AR marker tracking.</li>
+              <li>Turbidity-filtered image enhancement for underwater submarine CV.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">SLAM</span>
+            <span class="tech-tag">Visual Odometry</span>
+            <span class="tech-tag">Robocol</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: SDM & Mechatronics Prototyping -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/ATE.jpg" alt="Mechatronics Prototyping" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Hardware & CAD</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">Mechatronics & SDM Manufacturing</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Integration of Shape Deposition Manufacturing (SDM), flexible conductive polymers, microelectronics rapid
+              prototyping, and CAD modeling in Autodesk Fusion 360 for wearable mechatronics.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Developed compliant joint mechanisms and sensorized garment housings.</li>
+              <li>Microcontroller firmware flashing with low-latency SPI/I2C protocols.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">Fusion 360</span>
+            <span class="tech-tag">SDM</span>
+            <span class="tech-tag">3D Printing</span>
+            <span class="tech-tag">EAGLE</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation footer -->
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <a href="health.html" class="btn-primary">Next Wing: Health & Biomedical →</a>
+    </div>
+  </main>
+
+  <footer class="footer-clean">
+    <div class="container footer-inner">
+      <div>
+        <div style="font-size: 1.15rem; font-weight: 800; font-family: var(--font-display);">Andrés Santiago Martínez
+          Hernández</div>
+        <p style="color: var(--text-secondary); font-size: 0.82rem;">Fribourg, Switzerland 🇨🇭 • Robotics & 3D Modeling
+        </p>
+      </div>
+      <div><a href="index.html" class="nav-link">← Return to Homepage</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2026.4"></script>
+</body>
+
+</html>

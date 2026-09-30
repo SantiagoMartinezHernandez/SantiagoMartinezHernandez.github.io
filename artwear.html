@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ART/Wear — Closed-Loop Tremor Suppression | Andrés Santiago Martínez Hernández</title>
+  <meta name="description"
+    content="ART/Wear is a closed-loop mechatronic smart garment designed to counteract hand tremors in Parkinson's and Essential Tremor via afferent nerve electrical stimulation.">
+  <meta name="author" content="Andrés Santiago Martínez Hernández">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦾</text></svg>">
+
+  <!-- Google Fonts: Outfit + Newsreader + Plus Jakarta + Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Model Viewer for 3D/AR -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css?v=2026.5">
+  <style>
+    .specs-grid-clean {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .spec-card-clean {
+      padding: 1.75rem;
+      border-radius: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Dynamic Theme-Aware Living Neural Canvas -->
+  <canvas id="neuro-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/img/newpic26.png" alt="Santiago Martínez" class="nav-brand-avatar"
+        style="width:34px;height:34px;border-radius:50%;object-fit:cover;">
+      <span>Santiago Martínez</span>
+      <span class="nav-brand-badge">← Home</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="artwear.html" class="nav-link active">⭐ ART/Wear</a></li>
+      <li><a href="robotics.html" class="nav-link">Robotics & 3D</a></li>
+      <li><a href="health.html" class="nav-link">Health & Bio</a></li>
+      <li><a href="neuroscience.html" class="nav-link">Neuro & AI</a></li>
+      <li><a href="labs.html" class="nav-link">🎮 Labs</a></li>
+      <li><a href="journey.html" class="nav-link">Journey</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">☀️</button>
+      <button class="btn-cmd"><span>⌘K</span></button>
+      <a href="mailto:andres.martinezhernandez@unifr.ch?subject=ART/Wear Inquiry" class="btn-primary">Inquire ↗</a>
+      <button class="mobile-toggle">☰</button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Hero Section -->
+    <div class="subpage-hero">
+      <span class="status-pill-clean"
+        style="border-color: var(--accent-violet); color: var(--accent-violet-light); background: rgba(139, 92, 246, 0.12);">
+        ⭐ Flagship Venture & Biomedical Device
+      </span>
+      <h1 class="subpage-hero-title">
+        <span class="gradient-violet">ART/Wear</span>: Counteracting Tremors with <span class="serif-italic">Physical
+          AI.</span>
+      </h1>
+      <p class="subpage-hero-sub">
+        A closed-loop orthotic smart garment engineered to suppress hand tremors in Parkinson’s Disease and Essential
+        Tremor via real-time sEMG decoding and peripheral afferent nerve electrical stimulation.
+      </p>
+    </div>
+
+    <!-- Traction Banner -->
+    <div class="glass-card" style="padding: 1.75rem 2rem; margin-bottom: 3rem; border: 1px solid var(--border-glow);">
+      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1.5rem; text-align: center;">
+        <div>
+          <h2 style="font-size: 2.2rem; color: var(--accent-cyan); font-family: var(--font-mono);">$100K+</h2>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; font-weight: 600;">Raised in Grants</p>
+        </div>
+        <div>
+          <h2 style="font-size: 2.2rem; color: var(--accent-emerald); font-family: var(--font-mono);">VivaTech</h2>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; font-weight: 600;">Pitched in Paris</p>
+        </div>
+        <div>
+          <h2 style="font-size: 2.2rem; color: var(--accent-violet-light); font-family: var(--font-mono);">GSEA '24</h2>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; font-weight: 600;">Entrepreneur of the Year (Col)
+          </p>
+        </div>
+        <div>
+          <h2 style="font-size: 2.2rem; color: var(--accent-amber); font-family: var(--font-mono);">Startup Chile</h2>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; font-weight: 600;">CORFO Acceleration (2025)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Model Explorer & Flagship Intro -->
+    <div
+      style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem; align-items: center; margin-bottom: 3.5rem;">
+      <div>
+        <div class="glass-card" style="padding: 2.25rem;">
+          <h3 style="font-size: 1.45rem; margin-bottom: 0.75rem; color: var(--accent-cyan);">The Clinical Need</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.65;">
+            Over 60 million individuals worldwide live with tremor-dominant movement disorders. Pharmacological
+            interventions often suffer from declining efficacy over time, while surgical Deep Brain Stimulation (DBS) is
+            highly invasive and carries significant surgical risk.
+          </p>
+          <h3 style="font-size: 1.45rem; margin-bottom: 0.75rem; color: var(--accent-emerald);">The ART/Wear Mechatronic
+            Solution</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65;">
+            ART/Wear embeds high-density surface electromyography (sEMG) arrays into an ergonomic fabric. Our
+            proprietary algorithm predicts tremor oscillations milliseconds in advance, triggering timed biphasic
+            electrical pulses that desynchronize peripheral afferent pathways and suppress involuntary tremor.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive 3D Model Viewer -->
+      <div class="model-viewer-box" style="height: 380px;">
+        <model-viewer src="smalltest.gltf" poster="assets/img/ATE.jpg" alt="ART/Wear Mechatronic 3D Model" auto-rotate
+          camera-controls ar ar-modes="webxr scene-viewer quick-look" shadow-intensity="1.5" exposure="1.0">
+          <button slot="ar-button" class="btn-primary"
+            style="position: absolute; bottom: 1rem; right: 1rem; z-index: 10;">
+            📱 View in AR
+          </button>
+        </model-viewer>
+      </div>
+    </div>
+
+    <!-- Technical Architecture & Specs -->
+    <div style="margin-bottom: 4rem;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+        <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Engineering Deep-Dive</span>
+        <h2 style="font-size: 2rem;">Hardware & Signal Processing Stack</h2>
+      </div>
+
+      <div class="specs-grid-clean">
+        <div class="glass-card spec-card-clean">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">⚡</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.35rem; color: var(--accent-cyan);">Afferent Neuromodulation
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6;">
+            Proprietary closed-loop current pulses delivered directly to peripheral nerve branches, disrupting phase
+            synchronization in the central tremor network.
+          </p>
+        </div>
+
+        <div class="glass-card spec-card-clean">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🧠</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.35rem; color: var(--accent-emerald);">Dense sEMG & Predictive
+            AI</h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6;">
+            Multi-channel array downsampled with low-latency DSP routines to compute tremor phase and frequency before
+            physical deflection occurs.
+          </p>
+        </div>
+
+        <div class="glass-card spec-card-clean">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🪡</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.35rem; color: var(--accent-violet-light);">Mechatronic Smart
+            Garment</h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6;">
+            Shape Deposition Manufacturing (SDM) and conductive flexible polymers embedded into breathable fabric for
+            comfortable daily wear.
+          </p>
+        </div>
+
+        <div class="glass-card spec-card-clean">
+          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📊</div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.35rem; color: var(--accent-amber);">Tele-Health Biomarkers</h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6;">
+            Bluetooth Low Energy (BLE) stream syncing quantitative motor biomarkers directly with attending clinicians
+            in Switzerland and worldwide.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Banner -->
+    <div class="glass-card"
+      style="padding: 2.5rem; text-align: center; max-width: 760px; margin: 0 auto 4rem auto; border: 1px solid var(--border-glow);">
+      <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem;">Partner with ART/Wear</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+        We collaborate with neurology departments, movement disorder clinics, and medical device investors across
+        Switzerland, Europe, and the Americas.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap;">
+        <a href="mailto:andres.martinezhernandez@unifr.ch?subject=ART/Wear Collaboration Inquiry" class="btn-primary">
+          📧 Inquire via Fribourg HQ
+        </a>
+        <a href="index.html" class="btn-secondary">← Back to Portfolio</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-clean">
+    <div class="container footer-inner">
+      <div>
+        <div style="font-size: 1.15rem; font-weight: 800; font-family: var(--font-display);">Andrés Santiago Martínez
+          Hernández</div>
+        <p style="color: var(--text-secondary); font-size: 0.82rem;">CEO & Co-founder • ART/Wear • Fribourg, Switzerland
+          🇨🇭</p>
+      </div>
+      <div><a href="index.html" class="nav-link">← Return to Homepage</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2026.4"></script>
+</body>
+
+</html>

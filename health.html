@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health & Biomedical | Andrés Santiago Martínez Hernández</title>
+  <meta name="description"
+    content="Wearable medical technologies, closed-loop orthotics, epidemiological IMU & GPS signal telemetry, and bone cancer detection with Vision Transformers.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2026.5">
+</head>
+
+<body>
+  <canvas id="neuro-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/img/newpic26.png" alt="Santiago Martínez" class="nav-brand-avatar"
+        style="width:34px;height:34px;border-radius:50%;object-fit:cover;">
+      <span>Santiago Martínez</span>
+      <span class="nav-brand-badge">← Home</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="artwear.html" class="nav-link">⭐ ART/Wear</a></li>
+      <li><a href="robotics.html" class="nav-link">Robotics & 3D</a></li>
+      <li><a href="health.html" class="nav-link active">Health & Bio</a></li>
+      <li><a href="neuroscience.html" class="nav-link">Neuro & AI</a></li>
+      <li><a href="labs.html" class="nav-link">🎮 Labs</a></li>
+      <li><a href="journey.html" class="nav-link">Journey</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">☀️</button>
+      <button class="btn-cmd"><span>⌘K</span></button>
+      <a href="assets/pdf/CV_2026.pdf" target="_blank" class="btn-primary"><span>📄 CV</span></a>
+      <button class="mobile-toggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="subpage-hero">
+      <span class="status-pill-clean" style="border-color: var(--accent-emerald); color: var(--accent-emerald);">Wing #2
+        • Biomedical Engineering & Wearables</span>
+      <h1 class="subpage-hero-title">Health & <span class="gradient-emerald">Biomedical</span></h1>
+      <p class="subpage-hero-sub">
+        Pioneering patient-centric medical devices, physiological telemetry, wearable sensor networks, and AI-driven
+        oncological diagnostics.
+      </p>
+    </div>
+
+    <div class="subpage-grid">
+
+      <!-- Card 1: ART/Wear Flagship Spotlight -->
+      <div class="glass-card subpage-card" style="border-color: var(--border-violet);">
+        <img src="assets/img/ATE.jpg" alt="ART/Wear Tremor Suppression" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag"
+              style="background: rgba(139, 92, 246, 0.2); color: var(--accent-violet-light); border-color: var(--accent-violet); margin-bottom: 0.5rem; display: inline-block;">⭐
+              Flagship Startup Venture</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">ART/Wear — Orthotic Smart Garment</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Closed-loop peripheral afferent nerve stimulation to counteract hand tremors in Parkinson’s Disease and
+              Essential Tremor. Raised over $100K in grants, granted patents, and pitched at VivaTech Paris.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Winner: GSEA Entrepreneur of the Year (Colombia 2024).</li>
+              <li>Selected for Startup Chile (CORFO) acceleration program (2025).</li>
+            </ul>
+          </div>
+          <div
+            style="display: flex; gap: 0.5rem; justify-content: space-between; align-items: center; margin-top: auto;">
+            <div style="display: flex; gap: 0.35rem; flex-wrap: wrap;">
+              <span class="tech-tag">Neuromodulation</span>
+              <span class="tech-tag">sEMG</span>
+            </div>
+            <a href="artwear.html" class="btn-primary" style="font-size: 0.82rem; padding: 0.4rem 0.9rem;">View Flagship
+              ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: On the Way to School (UniAndes Faculty of Medicine) -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/map.jpg" alt="On the Way to School IMU Telemetry" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Faculty of Medicine
+              (2024–2025)</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">On the Way to School (IMU & GPS)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Biomedical engineering investigation analyzing high-frequency accelerometry, GPS, and environmental
+              exposure signals to model physiological stress during urban school commutes.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Constructed automated filtering algorithms for continuous kinematic streams.</li>
+              <li>Structured epidemiological datasets linking urban transit to public health metrics.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">IMU</span>
+            <span class="tech-tag">GPS</span>
+            <span class="tech-tag">Signal Processing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: RXAI - Bone Cancer Detection -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/p7_1.jpg" alt="RXAI Osteosarcoma Detection" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Oncology & Computer
+              Vision</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">RXAI — Bone Cancer (ViT & CNN)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Deep learning framework for early osteosarcoma detection from plain radiographs, mentored by Dr. Pablo
+              Arbeláez Escalante MD (Pontificia Univ. Javeriana / UniAndes).
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Benchmarked Vision Transformers (ViT) and CNNs for pediatric tumor margins.</li>
+              <li>Implemented Class Activation Mapping (CAM) for orthopedic radiologist explainability.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">Vision Transformers</span>
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">Medical Imaging</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <a href="neuroscience.html" class="btn-primary">Next Wing: Neuroscience & AI →</a>
+    </div>
+  </main>
+
+  <footer class="footer-clean">
+    <div class="container footer-inner">
+      <div>
+        <div style="font-size: 1.15rem; font-weight: 800; font-family: var(--font-display);">Andrés Santiago Martínez
+          Hernández</div>
+        <p style="color: var(--text-secondary); font-size: 0.82rem;">Fribourg, Switzerland 🇨🇭 • Health & Biomedical
+        </p>
+      </div>
+      <div><a href="index.html" class="nav-link">← Return to Homepage</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2026.4"></script>
+</body>
+
+</html>

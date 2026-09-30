@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuroscience & AI | Andrés Santiago Martínez Hernández</title>
+  <meta name="description"
+    content="Digital Neuroscience at University of Fribourg, Movement Disorders biomarker research at Barrow, 16-channel sEMG array decoding, and spatiotemporal GNNs.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2026.5">
+</head>
+
+<body>
+  <canvas id="neuro-canvas"></canvas>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/img/newpic26.png" alt="Santiago Martínez" class="nav-brand-avatar"
+        style="width:34px;height:34px;border-radius:50%;object-fit:cover;">
+      <span>Santiago Martínez</span>
+      <span class="nav-brand-badge">← Home</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="artwear.html" class="nav-link">⭐ ART/Wear</a></li>
+      <li><a href="robotics.html" class="nav-link">Robotics & 3D</a></li>
+      <li><a href="health.html" class="nav-link">Health & Bio</a></li>
+      <li><a href="neuroscience.html" class="nav-link active">Neuro & AI</a></li>
+      <li><a href="labs.html" class="nav-link">🎮 Labs</a></li>
+      <li><a href="journey.html" class="nav-link">Journey</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">☀️</button>
+      <button class="btn-cmd"><span>⌘K</span></button>
+      <a href="assets/pdf/CV_2026.pdf" target="_blank" class="btn-primary"><span>📄 CV</span></a>
+      <button class="mobile-toggle">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="subpage-hero">
+      <span class="status-pill-clean"
+        style="border-color: var(--accent-violet); color: var(--accent-violet-light);">Wing #3 • Digital Neuroscience &
+        Machine Intelligence</span>
+      <h1 class="subpage-hero-title">Neuroscience & <span class="gradient-violet">AI</span></h1>
+      <p class="subpage-hero-sub">
+        Deciphering movement disorder biomarkers, real-time neural decoding, graph neural networks, and semantic machine
+        learning models.
+      </p>
+    </div>
+
+    <div class="subpage-grid">
+
+      <!-- Card 1: University of Fribourg Digital Neuroscience -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/ATE.jpg" alt="University of Fribourg Digital Neuroscience" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Fribourg, Switzerland 🇨🇭
+              (2026–Present)</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">Digital Neuroscience & Neuroimaging</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Enrolled in the Specialized Master's program at the University of Fribourg. Developing digital biomarkers,
+              computational neural models, and AI automation for clinical neuroscience.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Recipient of the 2026 Innovation Grant from Innovation Club Fribourg.</li>
+              <li>Presenting "The Unfair Advantage: Practical AI Automation" at Fribourg Teach & Learn Days.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">Digital Neuroscience</span>
+            <span class="tech-tag">Univ. of Fribourg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: 16-channel sEMG Hand-Pose Estimation (Neuromatch) -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/code-screenshot.png" alt="Neuromatch Impact Scholars sEMG" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Neuromatch Impact
+              Scholars</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">16-Channel sEMG 3D Hand Pose</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Engineered a neural signal-processing pipeline downsampling high-density 16-channel surface
+              electromyography array inputs to continuously decode continuous 3D hand and finger kinematics in
+              real-time.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Built in Google Colab Pro with spatial spatial filtering and temporal convolution.</li>
+              <li>Presented at the Neuromatch Impact Scholars conference.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">sEMG Array</span>
+            <span class="tech-tag">Neuromatch</span>
+            <span class="tech-tag">Deep Learning</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Barrow Neurological Institute -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/new_prof_pic.jpg" alt="Barrow Neurological Institute" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Barrow Neurological Institute
+              (USA)</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">Movement Disorder Prognosis</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Conducted precision movement disorder research evaluating structural and functional imaging biomarkers,
+              clinical rating scales, and pharmacological progression in Parkinson's and Essential Tremor cohorts.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Applied multimodal clinical telemetry for differential diagnosis.</li>
+              <li>Generated 3D brain and thalamic structural models for tremor networks.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">Parkinson's</span>
+            <span class="tech-tag">Essential Tremor</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Solar Radiance GNN + LSTM -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/p2_1.jpg" alt="Solar Radiance GNN" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">Time-Series & Complex
+              Systems</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">Solar Radiance with GNN & LSTM</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              Long-term spatiotemporal solar irradiance estimation combining meteorological sensor network graphs with
+              recurrent Long Short-Term Memory units (with PI Dr. Luis Felipe Giraldo).
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Modeled cross-station atmospheric interactions as dynamic graph edges.</li>
+              <li>Surpassed baseline univariate forecasting models on multi-horizon benchmarks.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">GNN</span>
+            <span class="tech-tag">LSTM</span>
+            <span class="tech-tag">PyTorch</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Automated Thematic Clustering (ATC) -->
+      <div class="glass-card subpage-card">
+        <img src="assets/img/theplan.png" alt="Automated Thematic Clustering" class="subpage-thumb"
+          style="width:100%;height:180px;object-fit:cover;">
+        <div class="subpage-card-body">
+          <div>
+            <span class="tech-tag" style="margin-bottom: 0.5rem; display: inline-block;">BIOMAC UniAndes</span>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.65rem;">Automated Thematic Clustering</h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              NLP and graph-theoretic web scraping engine developed at the Mathematical & Computational Biology Group
+              for the Harmonize Project to predict Dengue spread over vulnerable territories.
+            </p>
+            <ul
+              style="padding-left: 1.2rem; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem;">
+              <li>Extracted semantic linkages from unorganized public epidemiological databases.</li>
+              <li>Generated automated dendrograms and adjacency matrices for disease tracking.</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto;">
+            <span class="tech-tag">NLP</span>
+            <span class="tech-tag">Graph Theory</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-bottom: 3.5rem;">
+      <a href="labs.html" class="btn-primary">Next Wing: Fun, Games & Labs →</a>
+    </div>
+  </main>
+
+  <footer class="footer-clean">
+    <div class="container footer-inner">
+      <div>
+        <div style="font-size: 1.15rem; font-weight: 800; font-family: var(--font-display);">Andrés Santiago Martínez
+          Hernández</div>
+        <p style="color: var(--text-secondary); font-size: 0.82rem;">Fribourg, Switzerland 🇨🇭 • Neuroscience & AI</p>
+      </div>
+      <div><a href="index.html" class="nav-link">← Return to Homepage</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=2026.4"></script>
+</body>
+
+</html>
